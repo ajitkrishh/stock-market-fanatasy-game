@@ -1,4 +1,4 @@
-# stock-market-fanatasy-game
+# stock-market-fantasy-game
 
 This project is for educational purposes only.
 
@@ -21,32 +21,30 @@ User has to create a portfolio, of 5000 inr and then join a contest, at the end 
 
 <table>
   
-  <h1>This is Crm Website created using Django Framework of python.</h1>
-  <h3>Below are some Screeshots of the Project.
-  <br> Do check it.</h3>
+  
   <tr>
-    <td>First Screen Page</td>
-     <td>Signup Page</td>
+    <td>Signup Page</td>
+     <td>Profile Page</td>
   </tr>
   <tr>
-    <td><img src="screenshots/landingpage.png" width="500px" height = "230px"></td>
-    <td><img src="screenshots/signup.png" width="500px" height = "230px"></td>
+    <td><img src="ss/signup.png" width="400px" height = "230px"></td>
+    <td><img src="ss/profile.png" width="400px" height = "230px"></td>
   </tr>
   <tr>
-    <td>Lead List</td>
-     <td>Agents List</td>
+    <td>Availabe Contests </td>
+     <td>Contest joining</td>
   </tr>
   <tr>
-    <td><img src="screenshots/lead-list.png" width="500px" height = "230px"></td>
-    <td><img src="screenshots/agent-list.png" width="500px" height = "230px"></td>
+    <td><img src="ss/contest select.png" width="400px" height = "230px"></td>
+    <td><img src="ss/portfolio.png" width="400px" height = "230px"></td>
   </tr>
   <tr>
-     <td>Lead List</td>
-    <td>Leads Category Screen Page</td>
+     <td>Add Money</td>
+    <td>Transaction History</td>
   </tr>
   <tr>
-    <td><img src="screenshots/lead-list.png" width="500px" height = "230px"></td>
-    <td><img src="screenshots/category.png" width="500px" height = "230px"></td>
+    <td><img src="ss/add money.png" width="400px" height = "230px"></td>
+    <td><img src="ss/transactions.png" width="400px" height = "230px"></td>
   </tr>
   
   </table
