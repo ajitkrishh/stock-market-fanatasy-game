@@ -1,0 +1,91 @@
+{% extends "account/base.html" %}
+
+{% load i18n %}
+
+{% block head_title %}Intra500{% endblock %}
+
+
+
+{% block body %}
+
+<div class="container emp-displye text-center">
+    {% if messages %}
+
+    <div class="alert alert-danger " style="max-width: 100%;">
+
+        {% for fm in messages %}
+        <p>{{fm.label_tag}} {{fm}} {{fm.errors|striptags}}</p>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <div class="text-center bg-light my-4"><a href="{% url 'profile' %}">
+            <h3 >Return to Profile</h3>
+        </a>
+    </div>
+
+
+    {% if details %}
+    {% for contestnames in details %}
+
+    {% for contestName,users in contestnames.items %}
+
+
+    <div class="text-center">
+        <h3>
+
+            <span class="alert alert-info"> contest {{contestName}} </span>
+        </h3>
+    </div>
+    <br>
+
+
+
+    {% for user in users %}
+
+    {% for username,stks in user.items %}
+    <div class="text-center">
+        <h5> <b>{{username}}'s Portfolio</b> </h5>
+    </div> <br>
+    <div class="container w-auto">
+        <table class="table table-sm table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">STOCK QUANTITY</th>
+                    <th scope="col">STOCK NAME</th>
+                    <th scope="col">PRICE</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                {% for stk in stks %}
+
+
+                <tr>
+                    <td>{{stk.0}}</td>
+                    <td> {{stk.1}}</td>
+                    <td>{{stk.2}}</td>
+                    <td></td>
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+            {% comment %}
+            <br> details is {{dete.0}}{{dete.1}}{{dete.2}} <br>
+            {% endcomment %}
+        </table>
+    </div>
+
+    {% endfor %}
+    {% endfor %}
+    {% endfor %}
+
+
+    {% endfor %}
+
+
+    {% endif %}
+</div>
+
+{% endblock %}

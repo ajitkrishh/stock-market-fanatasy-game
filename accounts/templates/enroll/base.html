@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    {% block Scriptcontent %}
+    {% endblock Scriptcontent %}
+
+    <link rel="stylesheet" href="{% static 'enroll/necessary/bootstrap.css' %}">
+</head>
+
+<body>
+    <div class="container mt-5 ">
+        <h4 class="text-center alert alert-danger">here is home page</h4>
+    </div>
+    <H1>FROM BASE I M HERE</H1>
+    {% block content %}
+    {% endblock content %}
+
+
+    <script src="{% static 'enroll/necessary/jquery.js' %}"></script>
+    <script src="{% static 'enroll/necessary/popper.js' %}"></script>
+    <script src="{% static 'enroll/necessary/bootstrap.js' %}"></script>
+
+</body>
+
+</html>

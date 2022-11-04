@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intra500</title>
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <style>
+        body {
+            background: -webkit-linear-gradient(left, #0353bb, #6ccaf0);
+        }
+
+        .emp-profile {
+            padding: 3%;
+            margin-top: 4%;
+            margin-bottom: 3%;
+            border-radius: 0.5rem;
+            background: #fff;
+            max-width: 70%;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="container emp-profile mw-75 text-center">
+
+ <div class="container emp-displye text-center">
+            {% if messages %}
+
+<div class="alert alert-danger " style="max-width: 100%;">
+    
+    {% for fm in messages %}
+    <p>{{fm.label_tag}} {{fm}} {{fm.errors|striptags}}</p>
+    {% endfor %}
+</div>  
+   {% endif %}
+</div>
+
+        {% if contest %}
+                    
+                  
+                    <br>
+                            <div class="container w-auto" >  
+                <table class="table table-sm table-striped" >
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">SR.NO</th>
+                                        <th scope="col">CONTEST ID</th>
+                                        <th scope="col">CONTEST NAME</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    
+                                 {% for contestName,users in contest.items %}
+
+                                     <tr>
+                        <td name="sr"> <a href="{% url 'your_contest' contestName %}"> {{forloop.counter}} </a></td>
+                        <td><a href="{% url 'your_contest' contestName %}"> {{contestName}} </a></td>
+
+                        <td><a href="{% url 'your_contest' contestName %}"> {{users}} </a></td>
+
+                    </tr>
+                                   {% endfor %}
+
+                                </tbody>
+                                </table>
+                                </div>
+
+        {% endif %}
+    </div>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>intra</title>
+</head>
+
+<body>
+
+    <form action="" method="POST">
+
+        <div class='row '>
+
+            {% if messages %}
+            {% for fm in messages %}
+            <p>{{fm.label_tag}} {{fm}} {{fm.errors|striptags}}</p> 
+             {% endfor %}
+            
+            
+            {% endif %}
+            
+                {% csrf_token %}
+                {% for fm in form %}
+                  <div class = "inputt">
+                    {{fm.label_tag}}<span style="width: 80%;">{{fm}}</span>  {{fm.errors|striptags}}
+                  </div>
+                   {% endfor %}
+
+            <input type="submit" class="btn btn-warning" value="sign up">
+            <br>
+        </div>
+
+
+    </form>
+
+
+</body>
+
+</html>

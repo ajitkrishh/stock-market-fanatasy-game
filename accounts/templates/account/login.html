@@ -1,0 +1,70 @@
+{% load socialaccount %}
+{% providers_media_js %}
+{% load i18n %}
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    
+  <link href="{% static 'enroll/necessary/bs.css' %}" rel="stylesheet">
+  <script src="{% static 'enroll/necessary/jquery.js' %}"></script>
+  <script src="{% static 'enroll/necessary/popper.js' %}"></script>
+  <script src="{% static 'enroll/necessary/bootstrap.js' %}"></script>
+
+
+    <title>Hello, world!</title>
+  </head>
+  <body style="background: linear-gradient(to right, #011c46, #4cb4fa)">
+
+  <div class="container text-dark mt-5" ></div>
+</div class ='justify-content-md-center'>
+
+        <div class="row justify-content-md-center " >
+          <div class="col-md-5 bg-grey p-3 m-auto" style="max-width: 85%; border: solid; background: #fff;">             
+
+              <form class="login form-signin p-3" method="POST" action="{% url 'account_login' %}">
+                <h1 class="h3 mb-3 text-center">Please Log in</h1>
+
+                {% csrf_token %}
+                {% for fm in form %}
+                      <div class = "row">
+                        <div class="col-5 col-md-3 p-1 ">
+                          {{fm.label_tag}}
+                        </div>
+                        <div class="col-7 col-md-9 p-1">
+                          {{fm}}  {{fm.errors|striptags}} 
+                        </div>
+                
+
+                      </div>
+                       {% endfor %}
+                {% if redirect_field_value %}
+                <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                {% endif %}
+
+                <button class="btn btn btn-outline-success btn-lg btn-block" type="submit">{% trans "Sign In" %}</button>
+                <div class="text-center mt-2">
+                  <!-- <a href="{% provider_login_url 'google' %}" class="btn btn btn-success mx-2 mt-2 mw-50 btn-lg"         role="button" aria-pressed="true">Sign in with Google</a> -->
+                  <a href="{% provider_login_url 'google' %}" class="btn btn btn-success btn-lg btn-block"         role="button" aria-pressed="true">Sign in with Google</a>
+                  <!-- <a href="{% provider_login_url 'facebook' %}" class="btn btn btn-primary mx-2 mt-2 mw-50 btn-lg" role="button" aria-pressed="true" method = "oauth2">Sign in with Facebook</a> -->
+
+
+                </div>
+
+                <a class="button secondaryAction" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
+              </form>
+              
+
+
+              
+          </div>
+        </div>
+
+  </body>
+</html>

@@ -1,0 +1,63 @@
+{% extends "account/base.html" %}
+
+
+{% block head_title %}Intra500{% endblock %}
+
+       {% block body %}
+
+
+    {% if messages %}
+{% for fm in messages %}
+<p>{{fm.label_tag}} {{fm}} {{fm.errors|striptags}}</p> 
+ {% endfor %}
+{% endif %}
+    <div class="container d-sm-flex px-4 m-10">
+
+        <!-- <div class="row"> -->
+            <div class="my-4" style="background-color: #eee;">
+                
+                <h4 class="alert alert-info text-center my-4">AVAILABLE STOCKS</h4>
+    
+    
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Srn.no</th>
+                            <th scope="col">STOCK NAME</th>
+                            <th scope="col">STOCK TICKER</th>
+                            <th scope="col">PREVIOUS CLOSING PRICE</th>
+    
+                        </tr>
+                    </thead>
+                    {% if stklst %}
+                    <!-- <h1>hello</h1> -->
+                    {% for frm in stklst %}
+    
+                    <tbody>
+                        <tr>
+                            <th scope="row">{{forloop.counter}}</th>
+                            <td>{{frm.name}}</td>
+                            <td> {{frm.ticker}}</td>
+                            <td>{{frm.pclose}}</td>
+                            <td></td>
+                        </tr>
+    
+                    </tbody>
+                    {% endfor %}
+                    {% endif %}
+                </table>
+    
+    
+            </div>
+    
+        <!-- </div> -->
+        
+    
+            </div>
+    
+    
+        
+           {% endblock %}
+
+    
+    

@@ -1,0 +1,59 @@
+{% extends "account/base.html" %}
+
+{% load i18n %}
+
+{% block head_title %}Intra500{% endblock %}
+
+
+
+       {% block body %}
+<div class="container"> 
+
+<p>you cannot change your phone number once added so double check it</p>
+<p>payment will be done using this mobile number</p>
+<p>+91 is added automatically dont add it</p>
+
+
+</div>
+
+ {% if messages %}
+
+    <div class="alert alert-success " style="max-width: 100%;">
+
+        {% for fm in messages %}
+        <p>{{fm.label_tag}} {{fm}} {{fm.errors|striptags}}</p>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+<div class="row">
+
+   <div class="col-sm-8 offset-2">
+    
+    <form action="" method="POST">
+      <select name="payment_method">
+		  <option value = "options" >Select Payment Method</option>
+
+	<option>Gpay</option>
+	<option>PayTm</option>
+	<option value="Bhim_upi">Bhim Upi</option>
+</select>
+
+{% csrf_token %}
+{% comment %}
+{{form.as_p}}
+{% endcomment %}
+
+<input type="number" name="phone"> </input>
+
+
+<input type="submit" class="btn btn-success" value="Update">
+</form>
+
+</div> 
+</div>
+
+
+
+
+       {% endblock %}

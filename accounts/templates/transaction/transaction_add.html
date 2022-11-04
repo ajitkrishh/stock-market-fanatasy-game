@@ -1,0 +1,53 @@
+
+
+
+{% extends "account/base.html" %}
+
+
+
+
+
+       {% block body %}
+
+       
+{% if add %}
+
+<div class="text-center bg-light my-4"><a href="{% url 'profile' %}"><h3>Return to Profile</h3> </a></div>
+
+
+<div class="text-center" >
+	
+ <form action="" method="POST" >
+        {% csrf_token %}
+<!--         <input type="text" placeholder="name" name = "name">
+ -->        <input type="number" class="form-control m-4 text-center d-inline rounded border-success " style="width: 50%" placeholder="Amount" name = "value">
+        <input type="submit" class="btn btn-outline-success" value="submit">
+
+
+    </form>
+
+
+</div>
+
+
+{% else %}
+
+
+<div class="text-center" >
+	
+ <form action="" method="POST" >
+        {% csrf_token %}
+<!--         <input type="text" placeholder="name" name = "name">
+ -->        <input type="number" class="form-control m-4 text-center d-inline rounded border-success " style="width: 50%" placeholder="Amount" name = "value">
+        <input type="submit" class="btn btn-outline-success" value="Request2Withdraw">
+
+
+    </form>
+</div>
+
+
+{% endif %}
+
+
+   {% endblock %}
+    

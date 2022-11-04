@@ -1,0 +1,26 @@
+{% extends "account/base.html" %}
+
+
+{% block head_title %}Intra500{% endblock %}
+
+
+
+       {% block body %}
+
+<div class="text-center bg-light my-4"><a href="{% url 'profile' %}"><h3>Return to Profile</h3> </a></div>
+
+
+    {% if rslt %}
+    <div>i am done</div>
+    {% endif %} 
+    
+    {% if messages %}
+    {% for fm in messages %}
+    <p>{{fm.label_tag}} {{fm}} {{fm.errors|striptags}}</p> 
+     {% endfor %}
+    
+    
+    {% endif %}
+
+
+   {% endblock %}

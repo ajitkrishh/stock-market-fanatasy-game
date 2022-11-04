@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intra500</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+
+    <style>
+        body {
+            background: -webkit-linear-gradient(left, #0353bb, #6ccaf0);
+        }
+
+        .emp-displye {
+            /* padding: 3%;
+            margin-top: 4%; */
+            /* margin-bottom: 3%; */
+            border-radius: 0.5rem;
+            background: #fff;
+            max-width: 80%;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div class="container emp-displye text-center">
+        {% if messages %}
+
+        <div class="alert alert-danger " style="max-width: 100%;">
+
+            {% for fm in messages %}
+            <p>{{fm.label_tag}} {{fm}} {{fm.errors|striptags}}</p>
+            {% endfor %}
+        </div>
+        {% endif %}
+        <!-- <div class="container w-auto px-4 m-10"> -->
+
+        <div class="text-center bg-light my-4"><a href="{% url 'profile' %}">
+                <h3>Return to Profile</h3>
+            </a></div>
+
+
+        <div class="row " style="margin-left: 0%; margin-right: 0%;">
+
+            {% if contestlist %}
+
+            <div class="col-md-6" style="background-color: #eee; height: fit-content;">
+                <h4 class="text-center alert alert-info my-4">AVAILABLE CONTEST</h4>
+                <div class="w-auto ">
+                    {% for contst in contestlist %}
+
+                    <div class="container emp-displye" style="background-color: #d6d8d9;">
+                        <div class="row justify-content-between ">
+                            <div class="col-4"><strong>
+                                    <h6> prize pool</h6>
+                                </strong></div>
+                            <div class="col-4"><strong>
+                                    <h6>entry</h6>
+                                </strong></div>
+                        </div>
+
+                        <div class="row justify-content-between text-center mx-3" style="background-color: #d4edda">
+
+                            <div class="col-2  text-success" style="background-color: #d4edda;padding: 1%;">
+                                <h5>{{contst.winnerPrize}}</h5>
+                            </div>
+                            
+                            <div class="col-2  text-success" style="background-color: #d4edda;padding: 1%; padding-right: 6%;">
+                                <h5>{{contst.fees}}</h5></strong>
+                            </div>
+                        </div>
+
+                        <div class="row justify-content-between my-1">
+                            <div class="col-4 mt-1 ml-2" style="margin-left: 5%; padding:1% "><strong>
+                                    <h6 style="display:inline ;">spots </h6>
+                                    <div style="border-radius: 50%;display: inline;background-color: yellow;">
+                                        &nbsp; {{contst.NoOfPlayer}} &nbsp;
+                                    </div>
+                                </strong></div>
+                            <div class="col-4 my-1" >
+                                <form action="" method="POST">
+                                    {% csrf_token %}
+                                    <input type="submit" class="btn btn-success btn-sm" id="cnt{{contst.id}}" value="join">
+                                    <input type="hidden" class="btn btn-info" name="contestname" value={{contst.id}}>
+                                </form>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+                    <br><br>
+                    {% endfor %}
+
+
+                </div>
+
+
+            </div>
+
+            {% endif %}
+
+            <div class="col-md-1">
+            </div>
+
+            <div class="col-md-5 my-4 text-center " style="background-color: #eee; height:max-content">
+
+                <h4 class="alert alert-info text-center my-4">CONTEST JOINED AND THEIR DETAILS</h4>
+
+                {% if joinedcontestlist %}
+
+                {% for key,frm in joinedcontestlist.items %}
+
+                <button type="text" class="btn btn-secondary my-2 d-inline">contest type is {{key.1}}</button>
+                <a class=" btn btn-warning d-inline" name="{{key.0}}" href="{% url 'editportfolio' key.0 %}"> EDIT</a>
+
+
+
+                <table class="table table-sm table-striped content">
+                    <thead>
+                        <tr>
+                            <th scope="col">Srn.no</th>
+                            <!-- <th scope="col">STOCK NAME</th> -->
+                            <th scope="col">STOCK SELECTED</th>
+                            <th scope="col">STOCK PRICE</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        {% for fm in frm %}
+
+                        <tr>
+                            <th>{{forloop.counter}}</th>
+                            <!-- <td width = "50">frm.name</td> -->
+                            <td> {{fm.1}}</td>
+                            <td>{{fm.2}}</td>
+                            <td></td>
+                        </tr>
+
+
+                        {% endfor %}
+
+                    </tbody>
+
+                </table>
+
+                {% endfor %}
+
+
+                {% else %}
+
+                <div class='text-center'>
+                    <div class='btn btn-warning no-click my-4' style="cursor: default;">
+                        <p> <b>NO CONTEST JOINED</b> </p>
+                    </div>
+
+                </div>
+                {% endif %}
+
+            </div>
+
+      </div>
+
+    </div>
+</body>
+
+</html>

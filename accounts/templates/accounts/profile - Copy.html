@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <style>
+        body {
+            background: -webkit-linear-gradient(left, #0353bb, #6ccaf0);
+        }
+
+        .emp-profile {
+            padding: 3%;
+            margin-top: 4%;
+            margin-bottom: 3%;
+            border-radius: 0.5rem;
+            background: #fff;
+            max-width: 70%;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="container emp-profile">
+        {% if details %}
+            {% for detail in details %}
+
+                {% for key,detl in detail.items %}
+                    <div class="text-center bg-info"><h3> <b>contest  {{key}} </b> </h3></div> <br>
+
+                    {% for det in detl %}
+
+                        {% for k,d in det.items %}
+                        <div class="text-center"><h3> <b>{{k}}'s Portfolio</b> </h3></div> <br>
+                            <div class="container w-auto" >  
+                            <table class="table table-sm table-striped" >
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th scope="col">STOCK QUANTITY</th>
+                                        <th scope="col">STOCK NAME</th>
+                                        <th scope="col">PRICE</th>
+                
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for dete in d %}
+
+                    
+                                        <tr>
+                                            <td>{{dete.0}}</td>
+                                            <!-- <td width = "50">frm.name</td> -->
+                                            <td> {{dete.1}}</td>
+                                            <td>{{dete.2}}</td>
+                                            <td></td>
+                                        </tr>
+                    
+                                    {% endfor %}
+
+                                </tbody>
+                                        {% comment %}
+                                    <br> details is {{dete.0}}{{dete.1}}{{dete.2}} <br>
+                                    {% endcomment %}
+                                </table>
+                                </div>
+
+                        {% endfor %}
+                    {% endfor %}
+                {% endfor %}
+
+
+            {% endfor %}
+
+
+        {% endif %}
+    </div>
+</body>
+
+</html>
