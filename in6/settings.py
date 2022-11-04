@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '72a-7forp^kg7_h+#hf7+@0q==(0%0xb$n++-1#qh370yg)phk'
+SECRET_KEY = 'secret key
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -176,13 +176,7 @@ ACCOUNT_LOGIN_ATTEMPTS_LIMIT = 5
 ACCOUNT_LOGIN_ATTEMPTS_TIMEOUT = 86400 # 1 day in seconds
 ACCOUNT_LOGOUT_REDIRECT_URL ='/'
 ACCOUNT_LOGIN_REDIRECT_URL ='profile'
-# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-# EMAIL_HOST ='smtp.gmail.com'
-# EMAIL_USE_TLS =True
-# EMAIL_PORT = 587
-# EMAIL_HOST_USER = '190160107120.ajitkumar@gmail.com' 
-# EMAIL_HOST_PASSWORD = 'Ajit2@@2'
 
 
 AUTHENTICATION_BACKENDS = (
@@ -206,8 +200,6 @@ ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_UNIQUE_EMAIL =True
 ACCOUNT_USERNAME_REQUIRED = True
 
-#fb secret  1f1970e96c40236c9cd8dbb81de4d25a
-#fb appid   164293778748155
 
 
 # AUTH_USER_MODEL = 'accounts.costomUser'
